@@ -1,0 +1,309 @@
+@use "../variables/colors" as *;
+@use "../variables/sizes" as *;
+@use "../helpers/mixins" as *;
+
+header {
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  .flag {
+    width: 100%;
+    padding: 8px 0 6px;
+    margin: 8px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.2ch;
+    background-color: $main-color;
+
+    p {
+      margin: 0;
+    }
+  }
+  .discover {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    border-bottom: 1px solid #333;
+    @include breakpoints(mobile) {
+      display: none;
+    }
+    @include breakpoints(small) {
+      display: none;
+    }
+    .wrapper {
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      @include breakpoints(mobile) {
+        width: 95%;
+      }
+      @include breakpoints(small) {
+        width: 95%;
+      }
+      @include breakpoints(medium) {
+        width: 95%;
+      }
+      @include breakpoints(large) {
+        width: 85%;
+      }
+      ul {
+        display: flex;
+        list-style-type: none;
+
+        @include breakpoints(medium) {
+          font-size: 10px;
+          gap: 20px;
+        }
+        @include breakpoints(large) {
+          font-size: 12px;
+          gap: 28px;
+        }
+        li {
+          padding: 10px 0;
+          cursor: pointer;
+          position: relative;
+          &::after {
+            content: "";
+            width: 0px;
+            height: 3px;
+            background-color: $main-color;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: 0.3s;
+          }
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+      .search {
+        cursor: pointer;
+        padding: 15px 0;
+      }
+      .search-box {
+        position: absolute;
+        right: -20px;
+        bottom: -76px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        border-top: 3px solid $main-color;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -24px;
+          right: 16px;
+          border-style: solid;
+          border-width: 12px;
+          border-color: transparent transparent $main-color transparent;
+        }
+        form {
+          display: flex;
+        }
+        input {
+          padding: 8px;
+          border: 1px solid gray;
+          outline: none;
+        }
+        button {
+          padding: 8px;
+          background-color: black;
+          color: white;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  height: fit-content;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include breakpoints(mobile) {
+    width: 95%;
+  }
+  @include breakpoints(small) {
+    width: 95%;
+  }
+  @include breakpoints(medium) {
+    width: 95%;
+  }
+  @include breakpoints(large) {
+    width: 85%;
+  }
+  .menu {
+    width: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    @include breakpoints(medium) {
+      display: none;
+    }
+    @include breakpoints(large) {
+      display: none;
+    }
+  }
+  .socials {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 $main-padding 0 0;
+    font-size: 18px;
+    @include breakpoints(mobile) {
+      display: none;
+    }
+    @include breakpoints(small) {
+      display: none;
+    }
+    i {
+      color: black;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+  .logo {
+    flex: 2.3;
+    padding: 0 $main-padding;
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 90%;
+      min-width: 200px;
+      height: auto;
+    }
+  }
+  .auth {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: "open-sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .login {
+      padding: 3px 10px 0 0;
+    }
+    .subscriber {
+      background-color: $secondary-color;
+      padding: 8px 16px;
+      border-radius: 7px;
+      text-align: center;
+      white-space: nowrap;
+      transition: 0.3s;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+    @include breakpoints(mobile) {
+      .login {
+        display: none;
+      }
+      .subscriber {
+        padding: 4px 8px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.overlay {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.95),
+    rgba(255, 102, 0, 0.95)
+  );
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 1000;
+  padding-top: 10px;
+
+  a {
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  h2 {
+    width: fit-content;
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    margin: 10px auto 20px;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+  margin-left: 20px;
+
+  a {
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+    padding: 10px;
+
+    &:hover {
+      color: #ff6600;
+    }
+  }
+}
+
+.openbtn {
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+}

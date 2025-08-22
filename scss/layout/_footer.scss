@@ -1,0 +1,77 @@
+@use "../variables/colors" as *;
+@use "../variables/sizes" as *;
+@use "../helpers/mixins" as *;
+
+footer {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  padding: 20px;
+  .login {
+    display: flex;
+    color: $secondary-color;
+    gap: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 54px;
+    font-size: 30px;
+    color: $main-color;
+    @include breakpoints(mobile) {
+      flex-wrap: wrap;
+    }
+
+    i {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .subscribe {
+    color: #fff;
+    padding: 18px 36px;
+    background-color: $main-color;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #202020;
+    }
+  }
+  .terms {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    @include breakpoints(mobile) {
+      flex-direction: column;
+    }
+
+    i {
+      font-size: 6px;
+    }
+    p {
+      cursor: pointer;
+      &:hover {
+        color: #818181;
+      }
+    }
+  }
+  .copyrights {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2ch;
+  }
+}
