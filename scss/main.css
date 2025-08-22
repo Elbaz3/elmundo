@@ -255,8 +255,7 @@ header .discover .wrapper .search-box button {
     display: none;
   }
   .header .auth .subscriber {
-    padding: 4px 8px;
-    font-size: 11px;
+    display: none;
   }
 }
 
@@ -419,6 +418,7 @@ footer .copyrights {
   bottom: 5px;
   right: 5px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .hide {
