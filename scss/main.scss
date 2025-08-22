@@ -166,6 +166,9 @@
       padding: 20px;
       text-align: center;
       position: relative;
+      @include breakpoints(mobile) {
+        display: none;
+      }
       .logo {
         width: 50px;
       }

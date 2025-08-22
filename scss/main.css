@@ -575,6 +575,11 @@ footer .copyrights {
   text-align: center;
   position: relative;
 }
+@media (max-width: 767px) {
+  .first .sub .sub-act {
+    display: none;
+  }
+}
 .first .sub .sub-act .logo {
   width: 50px;
 }
