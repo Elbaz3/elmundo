@@ -28,16 +28,14 @@ const searchBox = document.querySelector(".search-box");
 searchIcon.addEventListener("click", () => {
   searchBox.classList.toggle("hide");
 });
-const menuBtn = document.querySelector(".menu i"); // أيقونة الـ bars
+const menuBtn = document.querySelector(".menu i");
 const overlay = document.getElementById("myNav");
 const closeBtn = document.querySelector(".closebtn");
 
-// فتح القائمة
 menuBtn.addEventListener("click", () => {
   overlay.style.width = "100%";
 });
 
-// غلق القائمة
 closeBtn.addEventListener("click", () => {
   overlay.style.width = "0";
 });
